@@ -1,4 +1,4 @@
-FROM continuumio/miniconda3
+FROM continuumio/anaconda3
 
 ARG conda_env=rubinsim
 
@@ -24,13 +24,11 @@ RUN conda env create -f environment.yaml
 # Make RUN commands use the new environment:
 SHELL ["conda", "run", "-n", "rubinsim", "/bin/bash", "-c"]
 
-# Update bashrc to activate the rubinsim environment
+# Update bashrc to activate the rubinsim environments
 RUN ["/bin/bash","-c", "./rubinsim.sh >>  /root/.bashrc"]
 
-# Add environment to PATH
+# Add rubin environment to PATH
 ENV PATH /opt/conda/envs/$conda_env/bin:$PATH
-RUN /bin/bash -c "source activate $conda_env"
-ENV CONDA_DEFAULT_ENV $conda_env
 
 # The code to run when container is started. (activate the rubinsim env when connecting to the container. test_rbin will fail without this
 # This is probably what makes the pycharm connection use the rubinsim env - i.e pycharm cones in via a container

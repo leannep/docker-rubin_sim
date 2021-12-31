@@ -32,7 +32,7 @@ help:
 
 build:
 	# build the LSST image from the Docker file (--no-cache , --progress=plain)
-	docker build -t leanne/$(SERVICE) .
+	docker build --no-cache -t leanne/$(SERVICE) .
 
 test:
 	#  start a container on the image, run the test script.
