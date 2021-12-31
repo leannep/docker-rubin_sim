@@ -1,0 +1,33 @@
+name: rubinsim
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - flask
+  - setuptools_scm
+  - setuptools_scm_git_archive
+  - numpy
+  - matplotlib
+  - healpy
+  - pandas
+  - numexpr
+  - palpy
+  - scipy
+  - sqlite
+  - sqlalchemy
+  - six
+  - astropy
+  - pytables
+  - h5py
+  - openorb
+  - openorb-data-de405
+  - astroplan
+  - colorcet
+  - george
+  - scikit-learn
+  - requests
+  - pytest
+  - pytest-flake8
+  - pytest-cov
+  - pytest-black
+  - black==20.8b1
