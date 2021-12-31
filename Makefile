@@ -52,7 +52,9 @@ clean-containers:
 	# force stop and remove *all* containers
 	@if [ -n "$(DOCKER_CONTAINER_LIST)" ]; \
     then \
-    	echo "Removing docker containers" && docker rm $(DOCKER_CONTAINER_LIST); \
+    	echo "Removing docker containers" && \
+    	 docker stop $(DOCKER_CONTAINER_LIST) && \
+    	 docker rm $(DOCKER_CONTAINER_LIST); \
 	else echo "No containers found"; \
  	fi;
 clean-images:
